@@ -2,7 +2,7 @@
 const GetLogsButton = () => {
     let org = "footalent-team-2";
     let project = "javascript-react";
-    let token = "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"
+    let token = ""
 
     const handleClick = () => {
         fetch(`https://de.sentry.io/api/0/organizations/${org}/issues/`, {
