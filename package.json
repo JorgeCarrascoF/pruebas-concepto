@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@sentry/react": "^9.43.0"
+  }
+}
