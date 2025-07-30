@@ -1,13 +1,13 @@
+const key = import.meta.env.VITE_API_KEY;
 
 const GetLogsButton = () => {
     let org = "footalent-team-2";
-    let project = "javascript-react";
-    let token = ""
 
     const handleClick = () => {
+      // No podemos usar la API de Sentry desde localhost!
         fetch(`https://de.sentry.io/api/0/organizations/${org}/issues/`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${key}`,
         "Content-Type": "application/json",
       },
     })
