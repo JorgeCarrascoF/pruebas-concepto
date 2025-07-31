@@ -1,9 +1,12 @@
 {
   "dependencies": {
     "amqplib": "^0.10.8",
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.18.0",
     "mongoose": "^8.16.5",
     "nodemailer": "^7.0.5",
     "pug": "^3.0.3"
   }
+  
 }

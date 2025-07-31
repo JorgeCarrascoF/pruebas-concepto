@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
   const info = await transporter.sendMail({
     from: '"Equipo de Desarrollo" <futrenca@gmail.com>',
     to: "nicolas.sam1992@gmail.com",
-    subject: "Alerta de errores críticos ✔",
+    subject: "Alerta de errores críticos",
     text: "Errores críticos no solucionados", // plain‑text body
     html: "<b>Se detectó un error crítico en la app</b>", // HTML body
   });

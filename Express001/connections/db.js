@@ -13,23 +13,25 @@ const client = new MongoClient(uri, {
   }
 });
 
-async function run() {
+/*async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
-    console.log("Se hizo ping a tu implementación. ¡Te conectaste correctamente a MongoDB!!!");
+    console.log("Se conectó correctamente a MongoDB!!!");
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
-run().catch(console.dir);
+run().catch(console.dir);*/
 
 mongoose.connect('mongodb+srv://3qu1p0-2:I4V42Bv9rUj2vOde@cluster0.gwb4srn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('Conexión entre MongoDB y Mongoose'))
+.then(() => console.log('Conexión entre MongoDB y Mongoose Correcta'))
 .catch(err => console.error('Error en la Conexión entre MongoDB y Mongoose:', err));
+
+module.exports = mongoose;
