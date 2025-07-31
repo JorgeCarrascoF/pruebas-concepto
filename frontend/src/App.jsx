@@ -1,22 +1,22 @@
-import { useState } from 'react'
 import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './routes/Home'
+import Login from './routes/Login'
+import Register from './routes/Register'
+import Posts from './routes/Posts'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-      </div>
-      <h1>Proyecto para pruebas de concepto</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
 
-      </div>
-
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/posts" element={<Posts />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
