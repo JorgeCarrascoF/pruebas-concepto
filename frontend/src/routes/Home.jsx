@@ -16,6 +16,7 @@ const Home = () => {
       <div className="card">
         <NavButton text="Go to Login" route="/login" />
         <NavButton text="Go to Register" route="/register" />
+        <NavButton text="Go to Posts" route="/posts" />
       </div>
     </>
   );
