@@ -1,25 +1,20 @@
-import { useState } from 'react'
 import './App.css'
-import ErrorButton from './components/ErrorButton'
-import GetLogsButton from './components/GetLogsButton'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './routes/Home'
+import Login from './routes/Login'
+import Register from './routes/Register'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-      </div>
-      <h1>Proyecto para pruebas de concepto</h1>
-      <div className="card">
-        <button onClick={() => console.log(count[id])}>
-          count is {count}
-        </button>
-        <ErrorButton />
-        <GetLogsButton />
-      </div>
 
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
