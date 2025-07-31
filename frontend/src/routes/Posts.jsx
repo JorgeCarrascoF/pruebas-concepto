@@ -1,5 +1,6 @@
 
 import NavButton from "../components/NavButton";
+import PaginatedPostDashboard from "../components/PaginatedPostDashboard";
 import PostDashboard from "../components/PostDashboard";
 
 const Posts = () => {
@@ -7,7 +8,8 @@ const Posts = () => {
     <>
       <h1>Posts</h1>
       <NavButton text="Go to Home" route="/" />
-      <PostDashboard />
+      {/* <PostDashboard /> */}
+      <PaginatedPostDashboard />
     </>
   );
 };
