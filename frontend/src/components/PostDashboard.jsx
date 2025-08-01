@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "../queries/getPosts";
+import { ClipLoader } from "react-spinners";
 
 
 const PostDashboard = () => {
@@ -8,7 +9,7 @@ const PostDashboard = () => {
         queryFn: getPosts,
     })
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <ClipLoader color="#36d7b7" size={50} />;
     if (isError) return <div>Error: {error.message}</div>;
 
   return (
