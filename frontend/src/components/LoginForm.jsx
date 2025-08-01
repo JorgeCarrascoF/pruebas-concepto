@@ -1,10 +1,30 @@
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
+import { ClipLoader } from "react-spinners";
+import { api } from "../api";
+
+const loginUser = async (data) => {
+  const response = await api.post(`/login`, data);
+  return response.data;
+};
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const mutation = useMutation({
+    mutationFn: loginUser,
+    onSuccess: (data) => {
+      console.log("Login exitoso:", data);
+      setSuccess("Login exitoso!");
+    },
+    onError: (error) => {
+      console.error("Login fallido:", error);
+      setError("Ha habido un error en el login: " + error.message);
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,12 +41,11 @@ const LoginForm = () => {
       return;
     }
 
-    setSuccess("Login con exito")
     setEmail("");
     setPassword("");
 
     // fetch a la DB
-    console.log("Login: ", { email, password });
+    mutation.mutate({ email, password });
   };
 
   return (
@@ -58,7 +77,11 @@ const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        {mutation.isPending ? (
+          <ClipLoader color="#36d7b7" size={20} />
+        ) : (
+          <button type="submit">Login</button>
+        )}
         {error && <p style={{ color: "red" }}>{error}</p>}
         {success && <p style={{ color: "green" }}>{success}</p>}
       </div>

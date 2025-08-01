@@ -1,6 +1,6 @@
-import api from '../api';
+import { testApi } from '../api';
 
 export const getPosts = async () => {
-    const response = await api.get('/posts');
+    const response = await testApi.get('/posts');
     return response.data;
 };
