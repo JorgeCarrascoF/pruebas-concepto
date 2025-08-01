@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var auth = require('./routes/auth');
+var protected = require('./routes/protected');
+var swaggerDocs = require('./swagger');
 
 var app = express();
 
@@ -21,6 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', auth);
+app.use('/api', protected);
+app.use(cookieParser());
+swaggerDocs(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
