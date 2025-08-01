@@ -1,2 +1,7 @@
 node_modules/
 .env
+frontend/node_modules/
+frontend/.env/
+Express001/node_modules/
+Express001/.env
+
